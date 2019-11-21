@@ -32,9 +32,29 @@ export class Rocket implements Payload {
     canAdd(item: Payload): boolean {
         if ((this.currentMassKg() + item.massKg) <= this.totalCapacityKg){
         return true;
-        } else return false;
+        } else {
+            return false;
+        }
     }
-}
+
+    addCargo(cargo: Cargo){
+        if (this.canAdd(cargo) == true){
+            this.cargoItems.push(cargo);
+            return true;
+        } else {
+            return false ;
+        }
+    }
+    
+    addAstronaut(astronaut: Astronaut){
+        if(this.canAdd(astronaut) == true){
+            this.astronauts.push(astronaut);
+            return true;
+        } else {
+            return false;
+        }
+    }
+    }
 
 let myRocket = new Rocket('rocket', 7);
 console.log(myRocket.name);

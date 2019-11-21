@@ -22,8 +22,27 @@ var Rocket = /** @class */ (function () {
         if ((this.currentMassKg() + item.massKg) <= this.totalCapacityKg) {
             return true;
         }
-        else
+        else {
             return false;
+        }
+    };
+    Rocket.prototype.addCargo = function (cargo) {
+        if (this.canAdd(cargo) == true) {
+            this.cargoItems.push(cargo);
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
+    Rocket.prototype.addAstronaut = function (astronaut) {
+        if (this.canAdd(astronaut) == true) {
+            this.astronauts.push(astronaut);
+            return true;
+        }
+        else {
+            return false;
+        }
     };
     return Rocket;
 }());
